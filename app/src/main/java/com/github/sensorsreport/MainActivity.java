@@ -30,6 +30,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -51,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements
     private Executor diskExecutor;
 
     private long reportStartTime = 0;
+
+    public static String timeFromTimeStamp(long timeStamp){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(new Date(Long.parseLong(String.valueOf(timeStamp))));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements
 
                     File file = new File(Environment.getExternalStoragePublicDirectory(
                             Environment.DIRECTORY_DOWNLOADS),
-                            "sensors-report-" + reportStartTime + ".json");
+                            "sensors-report-" + timeFromTimeStamp(reportStartTime) + ".json");
                     try {
                         FileWriter fileWriter = new FileWriter(file);
                         fileWriter.write(json);
