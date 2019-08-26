@@ -139,7 +139,9 @@ public class SensorLiveData extends LiveData<SensorData> implements
                 location.getLongitude(),
                 location.getAltitude(),
                 location.getTime(),
-                location.getSpeed()));
+                location.getBearing(),
+                location.getSpeed(),
+                location.getAccuracy()));
     }
 
     @Override

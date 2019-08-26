@@ -86,14 +86,18 @@ public class SensorData {
         public double longitude;
         public double altitude;
         public long time;
+        public float bearing;
         public float speed;
+        public float accuracy;
 
-        public Gps(double latitude, double longitude, double altitude, long time, float speed) {
+        public Gps(double latitude, double longitude, double altitude, long time, float bearing, float speed, float accuracy) {
             this.latitude = latitude;
             this.longitude = longitude;
             this.altitude = altitude;
             this.time = time;
+            this.bearing = bearing;
             this.speed = speed;
+            this.accuracy = accuracy;
         }
     }
 
